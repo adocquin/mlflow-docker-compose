@@ -1,0 +1,9 @@
+name: TestDockerCompose
+on: push
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run
+        run: docker-compose up --build
