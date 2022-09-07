@@ -8,4 +8,4 @@ jobs:
       - name: Run
         run: docker-compose up --detach
       - name: Test
-        run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
+        run: docker run --network container:mlflow appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
