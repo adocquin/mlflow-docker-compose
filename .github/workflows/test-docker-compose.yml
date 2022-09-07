@@ -1,4 +1,4 @@
-name: TestDockerCompose
+name: Test Docker Compose
 on: push
 jobs:
   verify:
@@ -6,4 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run
-        run: docker-compose up --build
+        run: docker-compose up --detach
+      - name: Test
+        run: docker run --network container:webapp-frontend appropriate/curl -s --retry 10 --retry-connrefused http://localhost:5000/
